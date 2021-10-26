@@ -1,0 +1,21 @@
+{% extends 'connected_user_subnav.html.twig' %}
+
+{% block title %}Deck - {{ deck.name }}{% endblock %}
+
+{% block main %}
+
+    <h1>{{ deck.name }}</h1>
+
+    <p>Description : {{ deck.description }}</p>
+    <p>Max Size : {{ deck.maxSize }}</p>
+
+    <h2>Card list :</h2>
+
+    <a href=""><button class="btn">Add cards</button></a>
+    <br/>
+        
+    <a href="{{ path('deck_delete', {'name': deck.name}) }}?token={{ csrf_token('deck_delete') }}">
+        <button class="btn">Delete this deck</button>
+    </a>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil - {{ parent()}} {% endblock %}
+
+{% block navigation %}
+
+    <li>
+        <a href="{{ path('deck_index') }}">
+            Decks
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('app_logout') }}">
+            SignOut
+        </a>
+    </li>
+
+{% endblock %}
+
+
+

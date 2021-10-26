@@ -1,0 +1,9 @@
+.card_index main {
+    width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*.preloader {*/
+/*    background-image: url("./image.png");*/
+/*}*/

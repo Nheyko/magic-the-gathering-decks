@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block navigation %}
+
+        <li>
+            <a href="{{ path('app_register') }}">
+                SignUp
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('app_login') }}">
+                SignIn
+            </a>
+        </li>
+
+{% endblock %}

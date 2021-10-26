@@ -1,0 +1,60 @@
+{% extends 'connected_user_nav.html.twig' %}
+
+{% block title %}Create Deck - {{ parent()}} {% endblock %}
+
+{% block main %}
+
+    <h2>Create Deck</h2>
+
+    {{form_start(form, {attr: {novalidate: 'novalidate'}} )}}
+
+    {# Change l'ordre des champs #}
+        <div>
+            <div>
+                {{ form_errors(form.description) }}
+            </div>
+            <div>
+                {{ form_label(form.description, 'Deck Description', {
+                    'label_attr': {
+                        'class': 'foo'
+                    }
+                    }) }}
+            </div>
+            <div>
+                {{ form_widget(form.description, {
+                    'attr': {
+                        'class:': 'classMaterialize'
+                    }
+                }) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_row(form.name) }}
+        </div>
+
+        <center><div>Vous allez ajouter <output type="text" id="textInput">40</output> Cartes</div></center>
+
+        <div>
+            {{ form_errors(form.max_size) }}
+        </div>
+
+        <div>
+            {{ form_label(form.max_size)}}
+        </div>
+
+        <div>
+            {{ form_widget(form.max_size)}}
+        </div>
+
+        <script>
+            document.querySelector('#deck_max_size').onchange = (e)=> {
+                document.getElementById('textInput').value = e.target.value;
+            }
+        </script>
+
+    <button type="submit" class="btn">Create</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}

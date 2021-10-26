@@ -1,0 +1,21 @@
+{% extends 'connected_user_nav.html.twig' %}
+
+{% block subnav %}
+    <nav>
+        <ul>
+            <li>
+                <a href="?page=1">
+                    All
+                </a>
+            </li>
+            {% for color in colors %}
+            <li{{ options.colors|capitalize == color.name ? ' class="active"' : '' }}>
+                <a href="?color={{ color.name|lower }}&page=1">{{ color.name == 'Black' ? 'Dark' : color.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        {% block typeofdeck %}{% endblock %}
+    </nav>
+
+{% endblock %}

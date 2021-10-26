@@ -1,0 +1,54 @@
+{% extends 'connected_user_subnav.html.twig' %}
+
+{% block typeofdeck %}
+
+    <ul class="deck-picker right hide-on-med-and-down">
+        <select>
+            <option disabled selected>Select Deck</option>
+            {% for deck in decks %}
+                <option value="{{ deck.name }}">{{deck.name|length > 20 ? deck.name|slice(0, 20) ~ '...' : deck.name}}</option>
+            {% endfor %}
+        </select>
+    </ul>
+
+{% endblock %}
+
+{% block main %}
+    {% for card in cards %}
+
+        <div class="Card">
+            <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid={{ card.multiverseID ?? 0}}&type=card" alt="">
+{#            Name => {{ card.name }}#}
+
+{#            Mana Cost => {{ card.manaCost }}#}
+{#            Text => {{ card.text }}#}
+{#            Multiverse Id => {{ card.multiverseID }}#}
+
+{#            {% for color in card.getColorList() %}#}
+{#                Colors => {{ color.name }}#}
+{#            {% endfor %}#}
+
+{#            {% for type in card.getTypeList() %}#}
+{#                Types => {{ type.name }}#}
+{#            {% endfor %}#}
+        </div>
+
+    {% endfor %}
+    
+{% endblock %}
+
+{% block footer %}
+
+    <br/>
+    <center>
+        {% if 1 < options.page %}
+        <a href="?page=1">&#60;&#60;</a>
+        <a href="?{{ {  'page' : 1 == options.page ? 1 : options.page - 1,
+            'color': options.colors}|url_encode }}">&#60;</a>
+        {% endif %}
+        {{ options.page }}
+        <a href="?{{ {  'page' : options.page + 1,
+                        'color': options.colors}|url_encode }}">&#62;</a>
+        <a href="?page={{ options.page + 10 }}">&#62;&#62;</a>
+    </center>
+{% endblock %}

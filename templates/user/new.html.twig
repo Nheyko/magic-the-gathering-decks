@@ -1,0 +1,37 @@
+{% extends 'visitor_nav.html.twig' %}
+
+{% block title %} Sign Up - {{ parent()}} {% endblock %}
+
+{% block main %}
+
+<div class="row">
+    <form class="col s12" method="post">
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="confirm_password" type="password" class="validate">
+                <label for="confirm_password">Confirm</label>
+            </div>
+        </div>
+
+        <a href="{{ path('auth_signin') }}">Already have an account?</a>
+
+        <input type="submit" value="Create"/>
+    </form>
+</div>
+
+{% endblock %}
